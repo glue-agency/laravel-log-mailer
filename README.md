@@ -20,8 +20,21 @@ Installation
 
 Installation using composer:
 
+Add the VCS in the composer.json (to use the fork)
+
 ```sh
-composer require designmynight/laravel-log-mailer
+"repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:glue-agency/laravel-log-mailer.git"
+        }
+    ],
+```
+
+After
+
+```sh
+composer require designmynight/laravel-log-mailer:dev-feature/laravel6
 ```
 
 ### Laravel version Compatibility
@@ -29,7 +42,6 @@ composer require designmynight/laravel-log-mailer
  Laravel  | Package |
 :---------|:--------|
  6.x      | 1.0.x   |
- 5.6.x    | 1.0.x   |
 
 And add the service provider in `config/app.php`:
 
@@ -37,11 +49,6 @@ And add the service provider in `config/app.php`:
 DesignMyNight\Laravel\Logging\MailableLogServiceProvider::class,
 ```
 
-For usage with [Lumen](http://lumen.laravel.com), add the service provider in `bootstrap/app.php`.
-
-```php
-$app->register(DesignMyNight\Laravel\Logging\MailableLogServiceProvider::class);
-```
 
 Configuration
 ------------
